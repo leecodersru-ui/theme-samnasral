@@ -1,727 +1,985 @@
 :root {
-  /* APP ELEMENTS */
+  /* APP ELEMENTS - ПРОЗРАЧНЫЕ */
   --app-bg: url(https://i.ibb.co/5h7854Wy/bgmVeyt.jpg);
-  --app-blur: 12px;
+  --app-blur: 15px;
   --app-margin: 16px;
-  --app-radius: 12px;
-  --main-rgb: 10, 10, 15;
-  --main-content-opacity: 0.85;
-  --sidebar-opacity: 0.9;
+  --app-radius: 16px;
+  --main-rgb: 15, 15, 20;
+  --main-content-opacity: 0.15;
+  --sidebar-opacity: 0.12;
   --main-content-color: rgba(var(--main-rgb), var(--main-content-opacity));
   --sidebar-color: rgba(var(--main-rgb), var(--sidebar-opacity));
   
-  /* NEON ACCENT COLORS */
-  --accent-hue: 220;
-  --accent-saturation: 100%;
-  --accent-lightness: 65%;
+  /* NEON ACCENT COLORS - ЧЁРНО-БЕЛЫЕ */
+  --accent-hue: 0;
+  --accent-saturation: 0%;
+  --accent-lightness: 100%;
   --accent-hsl: var(--accent-hue), calc(var(--accent-saturation) * var(--saturation-factor)), var(--accent-lightness);
   --accent-opacity: 0.9;
-  --accent-text-color: hsl(220, 100%, 95%);
-  --accent-glow: 0 0 15px hsla(var(--accent-hsl), 0.7),
-                 0 0 30px hsla(var(--accent-hsl), 0.5),
-                 0 0 45px hsla(var(--accent-hsl), 0.3);
+  --accent-text-color: hsl(0, 0%, 100%);
+  --accent-glow: 0 0 20px hsla(var(--accent-hsl), 0.8),
+                 0 0 40px hsla(var(--accent-hsl), 0.6),
+                 0 0 60px hsla(var(--accent-hsl), 0.3);
+  --accent-inner-glow: inset 0 0 30px hsla(var(--accent-hsl), 0.2);
   
-  /* NEON SECONDARY COLORS */
-  --neon-cyan: 180, 100%, 65%;
-  --neon-magenta: 320, 100%, 65%;
-  --neon-green: 140, 100%, 65%;
+  /* MONOCHROME GRADIENTS */
+  --gradient-white: linear-gradient(145deg, 
+                                   hsla(0, 0%, 100%, 0.9),
+                                   hsla(0, 0%, 85%, 0.7));
+  --gradient-black: linear-gradient(145deg,
+                                   hsla(0, 0%, 20%, 0.4),
+                                   hsla(0, 0%, 10%, 0.6));
+  --gradient-glass: linear-gradient(145deg,
+                                   hsla(0, 0%, 100%, 0.1),
+                                   hsla(0, 0%, 100%, 0.05));
   
   /* ALERT HSL AND TEXT COLOR SETTINGS */
   --alert-hue: 0;
-  --alert-saturation: 100%;
-  --alert-lightness: 65%;
+  --alert-saturation: 0%;
+  --alert-lightness: 100%;
   --alert-hsl: var(--alert-hue), calc(var(--alert-saturation) * var(--saturation-factor)), var(--alert-lightness);
   --alert-opacity: 0.9;
   --alert-glow: 0 0 15px hsla(var(--alert-hsl), 0.7),
-                0 0 30px hsla(var(--alert-hsl), 0.5);
-  --alert-action-color: hsl(0, 100%, 95%);
-  --alert-text-color: hsl(0, 100%, 95%);
+                0 0 30px hsla(var(--alert-hsl), 0.4);
+  --alert-action-color: hsl(0, 0%, 100%);
+  --alert-text-color: hsl(0, 0%, 100%);
   
   /* MENTION HSL COLOR SETTINGS */
-  --mention-hue: 280;
-  --mention-saturation: 100%;
-  --mention-lightness: 65%;
+  --mention-hue: 0;
+  --mention-saturation: 0%;
+  --mention-lightness: 100%;
   --mention-hsl: var(--mention-hue), calc(var(--mention-saturation) * var(--saturation-factor)), var(--mention-lightness);
-  --mention-opacity: 0.9;
-  --mention-glow: 0 0 10px hsla(var(--mention-hsl), 0.7);
+  --mention-opacity: 0.8;
+  --mention-glow: 0 0 10px hsla(var(--mention-hsl), 0.9);
   
   /* REPLY HSL COLOR SETTINGS */
-  --reply-hue: 60;
-  --reply-saturation: 100%;
-  --reply-lightness: 65%;
+  --reply-hue: 0;
+  --reply-saturation: 0%;
+  --reply-lightness: 85%;
   --reply-hsl: var(--reply-hue), calc(var(--reply-saturation) * var(--saturation-factor)), var(--reply-lightness);
-  --reply-opacity: 0.9;
-  --reply-glow: 0 0 10px hsla(var(--reply-hsl), 0.7);
+  --reply-opacity: 0.8;
+  --reply-glow: 0 0 8px hsla(var(--reply-hsl), 0.7);
   
-  /* MESSAGE COLOR SETTINGS */
-  --message-color: hsla(220, 30%, 15%, 0.7);
-  --message-color-hover: hsla(220, 30%, 20%, 0.8);
-  --message-glow: 0 0 5px hsla(220, 100%, 65%, 0.1);
-  --message-radius: 8px;
-  --message-padding-top: 10px;
-  --message-padding-side: 12px;
+  /* MESSAGE COLOR SETTINGS - ПРОЗРАЧНЫЕ */
+  --message-color: hsla(0, 0%, 10%, 0.1);
+  --message-color-hover: hsla(0, 0%, 15%, 0.2);
+  --message-glow: 0 0 5px hsla(0, 0%, 100%, 0.3);
+  --message-border: 1px solid hsla(0, 0%, 100%, 0.15);
+  --message-radius: 12px;
+  --message-padding-top: 12px;
+  --message-padding-side: 16px;
+  --message-backdrop: blur(10px);
   
-  /* TEXTAREA SETTINGS */
+  /* TEXTAREA SETTINGS - СТЕКЛО */
   --textarea-color: 255, 255, 255;
-  --textarea-alpha: 0.1;
+  --textarea-alpha: 0.08;
   --textarea-alpha-focus: 0.15;
-  --textarea-text-color: hsl(220, 100%, 85%);
-  --textarea-placeholder-color: hsl(220, 30%, 60%);
-  --textarea-glow: 0 0 20px hsla(var(--accent-hsl), 0.3);
-  --textarea-radius: 20px;
-  --textarea-block-color: hsla(220, 30%, 15%, 0.5);
-  --textarea-block-text-color: hsl(220, 30%, 70%);
+  --textarea-text-color: hsl(0, 0%, 95%);
+  --textarea-placeholder-color: hsla(0, 0%, 70%, 0.7);
+  --textarea-glow: 0 0 25px hsla(0, 0%, 100%, 0.4);
+  --textarea-radius: 24px;
+  --textarea-border: 1px solid hsla(0, 0%, 100%, 0.25);
+  --textarea-block-color: hsla(0, 0%, 100%, 0.05);
+  --textarea-block-text-color: hsl(0, 0%, 80%);
   
-  /* CARD SETTINGS */
-  --card-color: hsla(220, 30%, 12%, 0.8);
-  --card-color-hover: hsla(220, 30%, 18%, 0.9);
-  --card-color-select: hsla(var(--accent-hsl), 0.2);
-  --card-glow: 0 0 10px hsla(var(--accent-hsl), 0.2);
-  --card-radius: 8px;
+  /* CARD SETTINGS - СТЕКЛЯННЫЕ КАРТОЧКИ */
+  --card-color: hsla(0, 0%, 100%, 0.08);
+  --card-color-hover: hsla(0, 0%, 100%, 0.15);
+  --card-color-select: hsla(0, 0%, 100%, 0.25);
+  --card-glow: 0 0 15px hsla(0, 0%, 100%, 0.2);
+  --card-border: 1px solid hsla(0, 0%, 100%, 0.2);
+  --card-radius: 12px;
+  --card-backdrop: blur(20px) saturate(180%);
   
-  /* BUTTON SETTINGS */
-  --button-height: 36px;
-  --button-padding: 0 20px;
-  --button-color: linear-gradient(145deg, 
-                                 hsla(var(--accent-hsl), 0.9),
-                                 hsla(var(--accent-hsl), 0.7));
-  --button-action-color: hsl(220, 100%, 95%);
+  /* BUTTON SETTINGS - НЕОНОВЫЕ КНОПКИ */
+  --button-height: 40px;
+  --button-padding: 0 24px;
+  --button-color: hsla(0, 0%, 100%, 0.15);
+  --button-color-hover: hsla(0, 0%, 100%, 0.25);
+  --button-color-active: hsla(0, 0%, 100%, 0.35);
+  --button-action-color: hsl(0, 0%, 100%);
   --button-text-color: hsl(0, 0%, 100%);
-  --button-glow: var(--accent-glow);
-  --button-radius: 18px;
+  --button-glow: 0 0 20px hsla(0, 0%, 100%, 0.5);
+  --button-border: 1px solid hsla(0, 0%, 100%, 0.4);
+  --button-radius: 20px;
+  --button-backdrop: blur(10px);
   
   /* SWITCH SETTINGS */
-  --switch-slider-color: hsla(220, 30%, 20%, 0.8);
-  --switch-knob-color: hsl(220, 100%, 65%);
-  --switch-glow: 0 0 10px hsla(var(--accent-hsl), 0.5);
+  --switch-slider-color: hsla(0, 0%, 100%, 0.2);
+  --switch-knob-color: hsl(0, 0%, 100%);
+  --switch-glow: 0 0 15px hsla(0, 0%, 100%, 0.6);
+  --switch-border: 1px solid hsla(0, 0%, 100%, 0.3);
   
-  /* POPOUT SETTINGS */
-  --popout-color: hsla(220, 30%, 8%, 0.95);
-  --popout-blur: 20px;
-  --popout-glow: 0 0 30px hsla(var(--accent-hsl), 0.2),
-                 0 0 60px hsla(var(--accent-hsl), 0.1);
-  --popout-radius: 12px;
-  --popout-shadow: 0 8px 32px hsla(220, 100%, 20%, 0.3),
-                   0 0 20px hsla(var(--accent-hsl), 0.2);
+  /* POPOUT SETTINGS - СТЕКЛЯННЫЕ ПОПАПЫ */
+  --popout-color: hsla(0, 0%, 5%, 0.65);
+  --popout-blur: 25px;
+  --popout-glow: 0 0 40px hsla(0, 0%, 100%, 0.25),
+                 0 0 80px hsla(0, 0%, 100%, 0.1);
+  --popout-border: 1px solid hsla(0, 0%, 100%, 0.2);
+  --popout-radius: 16px;
+  --popout-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.4),
+                   0 0 25px hsla(0, 0%, 100%, 0.2);
+  --popout-backdrop: blur(25px) saturate(200%);
   
   /* TOOLTIP SETTINGS */
-  --tooltip-color: hsla(220, 30%, 10%, 0.95);
-  --tooltip-text-color: hsl(220, 100%, 85%);
-  --tooltip-glow: 0 0 15px hsla(var(--accent-hsl), 0.3);
+  --tooltip-color: hsla(0, 0%, 10%, 0.9);
+  --tooltip-text-color: hsl(0, 0%, 95%);
+  --tooltip-glow: 0 0 20px hsla(0, 0%, 100%, 0.3);
+  --tooltip-border: 1px solid hsla(0, 0%, 100%, 0.3);
   
   /* ANIMATION SETTINGS */
-  --transition-time: 300ms;
+  --transition-time: 350ms;
   --transition-type: cubic-bezier(0.4, 0, 0.2, 1);
   
   /* SCROLLBAR SETTINGS */
-  --scrollbar-color: 100, 100, 255;
-  --scrollbar-color-alt: 220, 100%, 65%;
-  --scrollbar-opacity: 0.3;
-  --scrollbar-opacity-hover: 0.5;
-  --scrollbar-glow: 0 0 10px hsla(var(--accent-hsl), 0.5);
+  --scrollbar-color: 255, 255, 255;
+  --scrollbar-color-alt: 0, 0%, 100%;
+  --scrollbar-opacity: 0.2;
+  --scrollbar-opacity-hover: 0.4;
+  --scrollbar-glow: 0 0 15px hsla(0, 0%, 100%, 0.5);
+  --scrollbar-width: 12px;
   
-  /* TEXT COLOR SETTINGS */
-  --text-normal: hsl(220, 30%, 75%);
-  --text-muted: hsl(220, 30%, 60%);
-  --text-bright: hsl(220, 100%, 85%);
+  /* TEXT COLOR SETTINGS - МОНОХРОМ */
+  --text-normal: hsla(0, 0%, 90%, 0.9);
+  --text-muted: hsla(0, 0%, 70%, 0.8);
+  --text-bright: hsl(0, 0%, 100%);
+  --text-shadow: 0 0 8px hsla(0, 0%, 100%, 0.4);
+  
+  /* GLASS MORPHISM EFFECTS */
+  --glass-bg: linear-gradient(135deg, 
+                             hsla(0, 0%, 100%, 0.1), 
+                             hsla(0, 0%, 100%, 0.05));
+  --glass-border: 1px solid hsla(0, 0%, 100%, 0.18);
+  --glass-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.37);
+  --glass-backdrop: blur(16px) saturate(180%);
 }
 
-/* NEON GLOW EFFECTS */
+/* ==================== ОСНОВНОЙ ФОН И ПРОЗРАЧНОСТЬ ==================== */
+body {
+  background: transparent !important;
+  color: var(--text-normal);
+}
+
+._51fd70792ee2e563-appMount {
+  background: var(--app-bg) center/cover no-repeat fixed !important;
+  backdrop-filter: blur(var(--app-blur)) brightness(0.9) contrast(1.1);
+}
+
 ._51fd70792ee2e563-appMount * {
-  text-shadow: 0 0 5px hsla(var(--accent-hsl), 0.3);
+  text-shadow: var(--text-shadow);
 }
 
 ._51fd70792ee2e563-appMount svg {
-  filter: drop-shadow(0 0 3px hsla(var(--accent-hsl), 0.5));
+  filter: drop-shadow(0 0 4px hsla(0, 0%, 100%, 0.6));
 }
 
-::selection {
-  background: hsla(var(--accent-hsl), 0.5);
-  color: var(--accent-text-color);
-  text-shadow: 0 0 10px hsla(var(--accent-hsl), 0.8);
-}
-
-/* APP BACKGROUND AND BLUR */
+/* ==================== СЛОИ И ПРОЗРАЧНОСТЬ ==================== */
 ._160d8e55254637e5-layers {
-  background: var(--app-bg) center/cover no-repeat !important;
-  backdrop-filter: blur(var(--app-blur)) brightness(0.8) contrast(1.2);
+  margin: var(--app-margin);
+  background: transparent !important;
+  backdrop-filter: none;
 }
 
-._160d8e55254637e5-app,
 ._960e4207cea8323e-bg {
   background: transparent !important;
 }
 
-/* NEON BORDERS AND OUTLINES */
+/* ==================== САЙДБАР - СТЕКЛЯННЫЙ ==================== */
 ._5e434347c823b592-sidebar {
-  border-right: 1px solid hsla(var(--accent-hsl), 0.3);
-  box-shadow: inset -10px 0 30px hsla(var(--accent-hsl), 0.1),
-              var(--accent-glow);
+  background: var(--sidebar-color) !important;
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow),
+              inset 0 1px 0 hsla(0, 0%, 100%, 0.1),
+              var(--card-glow);
+  border-radius: var(--app-radius) 0 0 var(--app-radius);
 }
 
+.f37cb1984c371ee5-header {
+  background: transparent !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.15);
+  box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.3);
+}
+
+.f37cb1984c371ee5-communityInfoPill {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--glass-border);
+  border-radius: 20px !important;
+}
+
+/* ==================== КАНАЛЫ - ПРОЗРАЧНЫЕ ==================== */
+._2637a2609f343032-container {
+  background: transparent !important;
+}
+
+._2ea32c412048f708-link {
+  background: transparent !important;
+  border-radius: var(--card-radius);
+  margin: 2px 8px;
+  transition: all var(--transition-time) var(--transition-type);
+}
+
+._2ea32c412048f708-link:hover {
+  background: hsla(0, 0%, 100%, 0.1) !important;
+  backdrop-filter: blur(10px);
+}
+
+._2ea32c412048f708-link.selected-aXhQR6 {
+  background: var(--card-color-select) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid hsla(0, 0%, 100%, 0.4);
+  box-shadow: var(--accent-glow),
+              inset 0 0 30px hsla(0, 0%, 100%, 0.1);
+}
+
+/* ==================== ЧАТ - СТЕКЛЯННЫЙ ==================== */
 .f75fb00fb7356cbe-chat {
-  border-left: 1px solid hsla(var(--accent-hsl), 0.2);
-  box-shadow: inset 10px 0 30px hsla(var(--accent-hsl), 0.05);
+  background: var(--main-content-color) !important;
+  backdrop-filter: var(--glass-backdrop);
+  border-left: 1px solid hsla(0, 0%, 100%, 0.1);
+  box-shadow: inset 20px 0 40px hsla(0, 0%, 0%, 0.3),
+              var(--card-glow);
+  border-radius: 0 var(--app-radius) var(--app-radius) 0;
 }
 
-/* NEON BUTTONS */
+.f75fb00fb7356cbe-chatContent {
+  background: transparent !important;
+}
+
+.cb9592ad77576717-channelChatWrapper {
+  background: transparent !important;
+}
+
+/* ==================== ЗАГОЛОВОК КАНАЛА - НЕОНОВЫЙ ==================== */
+._9293f6b2fc12398a-container {
+  background: hsla(0, 0%, 0%, 0.25) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
+  box-shadow: 0 4px 30px hsla(0, 0%, 0%, 0.4),
+              0 0 20px hsla(0, 0%, 100%, 0.15);
+}
+
+/* ==================== СООБЩЕНИЯ - ПРОЗРАЧНЫЕ КАРТОЧКИ ==================== */
+.c19a557985eb7793-wrapper {
+  background: var(--message-color) !important;
+  backdrop-filter: var(--message-backdrop);
+  border: var(--message-border);
+  border-radius: var(--message-radius);
+  margin: 4px 16px;
+  box-shadow: var(--message-glow);
+  transition: all var(--transition-time) var(--transition-type);
+}
+
+.c19a557985eb7793-wrapper:hover {
+  background: var(--message-color-hover) !important;
+  border-color: hsla(0, 0%, 100%, 0.3);
+  box-shadow: 0 0 25px hsla(0, 0%, 100%, 0.3),
+              var(--accent-inner-glow);
+  transform: translateY(-1px);
+}
+
+/* Неоновые упоминания */
+.c19a557985eb7793-wrapper._5126c0cd07f243a0-mentioned {
+  border-left: 3px solid hsla(var(--mention-hsl), 0.9);
+  box-shadow: var(--mention-glow),
+              inset 15px 0 30px hsla(var(--mention-hsl), 0.15);
+  animation: neon-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-pulse {
+  0% {
+    border-left-color: hsla(var(--mention-hsl), 0.9);
+    box-shadow: var(--mention-glow),
+                inset 15px 0 30px hsla(var(--mention-hsl), 0.15);
+  }
+  100% {
+    border-left-color: hsla(var(--mention-hsl), 0.6);
+    box-shadow: 0 0 5px hsla(var(--mention-hsl), 0.5),
+                inset 15px 0 30px hsla(var(--mention-hsl), 0.08);
+  }
+}
+
+/* ==================== ПОЛЕ ВВОДА - СТЕКЛЯННОЕ ==================== */
+._740174f3d6a2c8fe-channelTextArea {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--textarea-border);
+  border-radius: var(--textarea-radius);
+  margin: 16px;
+  box-shadow: var(--textarea-glow),
+              var(--glass-shadow);
+  transition: all var(--transition-time) var(--transition-type);
+}
+
+._740174f3d6a2c8fe-channelTextArea:focus-within {
+  background: hsla(0, 0%, 100%, 0.12) !important;
+  border-color: hsla(0, 0%, 100%, 0.5);
+  box-shadow: var(--accent-glow),
+              inset 0 0 40px hsla(0, 0%, 100%, 0.1);
+}
+
+._1b31f471f0bb10ab-editor {
+  color: var(--textarea-text-color);
+  text-shadow: var(--text-shadow);
+}
+
+._1b31f471f0bb10ab-placeholder {
+  color: var(--textarea-placeholder-color);
+  text-shadow: none;
+}
+
+/* ==================== КНОПКИ - НЕОНОВЫЕ ==================== */
 ._201d5e8a3c09670a-button {
   background: var(--button-color) !important;
-  box-shadow: var(--button-glow),
-              inset 0 1px 0 hsla(220, 100%, 100%, 0.2),
-              inset 0 -1px 0 hsla(220, 0%, 0%, 0.3);
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
+  backdrop-filter: var(--button-backdrop);
+  border: var(--button-border);
+  border-radius: var(--button-radius);
+  color: var(--button-text-color) !important;
+  text-shadow: var(--text-shadow);
+  box-shadow: var(--button-glow);
   position: relative;
   overflow: hidden;
+  transition: all var(--transition-time) var(--transition-type);
 }
 
 ._201d5e8a3c09670a-button::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, 
-                             hsla(var(--accent-hsl), 0.8),
-                             hsla(var(--neon-cyan), 0.8),
-                             hsla(var(--accent-hsl), 0.8));
-  z-index: -1;
-  border-radius: inherit;
-  animation: neon-pulse 2s ease-in-out infinite alternate;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+                             transparent,
+                             hsla(0, 0%, 100%, 0.2),
+                             transparent);
+  transition: left 0.6s ease;
 }
 
-@keyframes neon-pulse {
-  0% { opacity: 0.5; }
-  100% { opacity: 0.8; }
-}
-
-/* NEON INPUT FIELDS */
-._72c3859781ebce8f-wrapper,
-.container_fea832,
-._740174f3d6a2c8fe-channelTextArea {
-  background: rgba(var(--textarea-color), var(--textarea-alpha)) !important;
-  border: 1px solid hsla(var(--accent-hsl), 0.3);
-  box-shadow: var(--textarea-glow),
-              inset 0 0 20px hsla(var(--accent-hsl), 0.1);
-  transition: all var(--transition-time) var(--transition-type);
-}
-
-._72c3859781ebce8f-wrapper:focus-within,
-.container_fea832:focus-within,
-._740174f3d6a2c8fe-channelTextArea:focus-within {
-  border-color: hsla(var(--accent-hsl), 0.8);
+._201d5e8a3c09670a-button:hover {
+  background: var(--button-color-hover) !important;
+  border-color: hsla(0, 0%, 100%, 0.6);
   box-shadow: var(--accent-glow),
-              inset 0 0 30px hsla(var(--accent-hsl), 0.2);
+              inset 0 0 30px hsla(0, 0%, 100%, 0.1);
+  transform: translateY(-2px);
 }
 
-/* NEON CARDS */
+._201d5e8a3c09670a-button:hover::before {
+  left: 100%;
+}
+
+._201d5e8a3c09670a-button:active {
+  background: var(--button-color-active) !important;
+  transform: translateY(0);
+}
+
+/* Кнопки вызова */
+.f1ceaca61b18918e-colorable {
+  background: hsla(0, 0%, 100%, 0.15) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.4);
+}
+
+.f1ceaca61b18918e-colorable.f1ceaca61b18918e-primaryDark {
+  background: hsla(0, 0%, 100%, 0.25) !important;
+  box-shadow: var(--accent-glow);
+}
+
+/* ==================== КАРТОЧКИ - СТЕКЛЯННЫЕ ==================== */
 ._730694f5672c9601-card,
 ._730694f5672c9601-cardPrimary,
 .backgroundAccent__4cd16,
-.eb2cd27996d667df-container {
+.eb2cd27996d667df-container,
+.aae01227de06a74c-cardWrapper {
   background: var(--card-color) !important;
-  border: 1px solid hsla(var(--accent-hsl), 0.2);
+  backdrop-filter: var(--card-backdrop);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
   box-shadow: var(--card-glow);
-  position: relative;
-  overflow: hidden;
+  transition: all var(--transition-time) var(--transition-type);
 }
 
-._730694f5672c9601-card::before,
-._730694f5672c9601-cardPrimary::before {
+._730694f5672c9601-card:hover,
+.aae01227de06a74c-cardWrapper:hover {
+  background: var(--card-color-hover) !important;
+  border-color: hsla(0, 0%, 100%, 0.35);
+  box-shadow: 0 0 30px hsla(0, 0%, 100%, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ==================== ПОПАПЫ И МЕНЮ - СТЕКЛЯННЫЕ ==================== */
+._49fc18ba07c5025f-root,
+.c1e9c47c23f12ca3-menu,
+._084343c4f11eaaab-contentWrapper,
+.contentWrapper_eab878,
+._13533e3c5791980f-autocomplete {
+  background: var(--popout-color) !important;
+  backdrop-filter: var(--popout-backdrop);
+  border: var(--popout-border);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--popout-shadow);
+}
+
+._49fc18ba07c5025f-root::before,
+.c1e9c47c23f12ca3-menu::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, 
-                             transparent,
-                             hsla(var(--accent-hsl), 0.8),
-                             transparent);
+  bottom: 0;
+  background: var(--glass-bg);
+  border-radius: inherit;
+  z-index: -1;
 }
 
-/* NEON MESSAGES */
-.c19a557985eb7793-wrapper {
-  background: var(--message-color) !important;
-  border: 1px solid hsla(var(--accent-hsl), 0.1);
-  box-shadow: var(--message-glow);
-  position: relative;
+/* ==================== СПИСОК УЧАСТНИКОВ - ПРОЗРАЧНЫЙ ==================== */
+.c8ffbb79449f399c-membersWrap {
+  background: transparent !important;
 }
 
-.c19a557985eb7793-wrapper:hover {
-  background: var(--message-color-hover) !important;
-  border-color: hsla(var(--accent-hsl), 0.3);
-  box-shadow: 0 0 20px hsla(var(--accent-hsl), 0.2);
+._5d473ecff348c314-memberInner {
+  background: transparent;
+  border-radius: var(--card-radius);
+  margin: 2px 8px;
+  padding: 8px;
+  transition: all var(--transition-time) var(--transition-type);
 }
 
-/* NEON MENTIONS */
-.c19a557985eb7793-wrapper._5126c0cd07f243a0-mentioned {
-  border-left: 3px solid hsla(var(--mention-hsl), 0.8);
-  box-shadow: var(--mention-glow),
-              inset 10px 0 20px hsla(var(--mention-hsl), 0.1);
-  animation: mention-pulse 2s ease-in-out infinite;
-}
-
-@keyframes mention-pulse {
-  0%, 100% { border-left-color: hsla(var(--mention-hsl), 0.8); }
-  50% { border-left-color: hsla(var(--mention-hsl), 0.4); }
-}
-
-/* NEON SCROLLBARS */
-.d125d22cdfd32cfe-scrollerBase::-webkit-scrollbar-thumb {
-  background: hsla(var(--accent-hsl), var(--scrollbar-opacity));
-  border-radius: 10px;
-  box-shadow: var(--scrollbar-glow);
-}
-
-.d125d22cdfd32cfe-scrollerBase::-webkit-scrollbar-thumb:hover {
-  background: hsla(var(--accent-hsl), var(--scrollbar-opacity-hover));
-  box-shadow: var(--accent-glow);
-}
-
-/* NEON SWITCHES */
-._3f21e80f8677ec40-container._3f21e80f8677ec40-checked {
-  --switch-slider-color: hsla(var(--accent-hsl), 0.8);
-  box-shadow: var(--switch-glow);
-}
-
-/* NEON MODALS AND POPOUTS */
-._49fc18ba07c5025f-root,
-.c1e9c47c23f12ca3-menu,
-._084343c4f11eaaab-contentWrapper,
-.contentWrapper_eab878 {
-  background: var(--popout-color) !important;
-  border: 1px solid hsla(var(--accent-hsl), 0.3);
-  box-shadow: var(--popout-glow);
-  backdrop-filter: blur(var(--popout-blur));
-}
-
-/* NEON AVATAR BORDERS */
-.avatar-3uk_uD,
-._44b0c28be7879b7b-wrapper {
-  border: 2px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.5),
-              inset 0 0 10px hsla(var(--accent-hsl), 0.3);
-}
-
-/* NEON STATUS INDICATORS */
-.circleIconButton-3URBFW[style*="background-color: rgb(67, 181, 129)"] {
-  background: hsla(140, 100%, 65%, 0.9) !important;
-  box-shadow: 0 0 15px hsla(140, 100%, 65%, 0.7);
-}
-
-.circleIconButton-3URBFW[style*="background-color: rgb(250, 166, 26)"] {
-  background: hsla(60, 100%, 65%, 0.9) !important;
-  box-shadow: 0 0 15px hsla(60, 100%, 65%, 0.7);
-}
-
-.circleIconButton-3URBFW[style*="background-color: rgb(240, 71, 71)"] {
-  background: hsla(0, 100%, 65%, 0.9) !important;
-  box-shadow: 0 0 15px hsla(0, 100%, 65%, 0.7);
-}
-
-/* NEON SERVER LIST */
-.ef3116c2da186559-wrapper {
-  background: hsla(220, 30%, 8%, 0.9);
+._5d473ecff348c314-memberInner:hover {
+  background: hsla(0, 0%, 100%, 0.1);
   backdrop-filter: blur(10px);
+}
+
+/* ==================== СЕРВЕР ЛИСТ - ПРОЗРАЧНЫЙ ==================== */
+.ef3116c2da186559-wrapper {
+  background: hsla(0, 0%, 0%, 0.2) !important;
+  backdrop-filter: blur(15px);
+  border-radius: var(--app-radius);
+  margin: var(--app-margin);
 }
 
 ._650eb104245d257b-listItem {
-  position: relative;
+  background: transparent !important;
+  border-radius: 50%;
+  transition: all var(--transition-time) var(--transition-type);
 }
 
-._650eb104245d257b-listItem.selected-1-Z6gm::before {
-  content: '';
-  position: absolute;
-  left: -5px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 70%;
-  background: hsla(var(--accent-hsl), 0.8);
-  border-radius: 0 3px 3px 0;
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.8);
+._650eb104245d257b-listItem:hover {
+  background: hsla(0, 0%, 100%, 0.15) !important;
+  border-radius: 35%;
 }
 
-/* NEON CHANNEL LIST */
-._5e434347c823b592-sidebar ._2ea32c412048f708-link.selected-aXhQR6 {
-  background: hsla(var(--accent-hsl), 0.15);
-  border-left: 3px solid hsla(var(--accent-hsl), 0.8);
-  box-shadow: inset 10px 0 20px hsla(var(--accent-hsl), 0.1);
+._650eb104245d257b-listItem.selected-1-Z6gm {
+  background: hsla(0, 0%, 100%, 0.25) !important;
+  border-radius: 35%;
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.5);
 }
 
-/* NEON HEADER BAR */
-._9293f6b2fc12398a-container {
-  background: hsla(220, 30%, 10%, 0.9);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid hsla(var(--accent-hsl), 0.3);
-  box-shadow: 0 5px 20px hsla(220, 100%, 10%, 0.3);
+/* ==================== ПАНЕЛИ (ГОЛОСОВОЙ КАНАЛ) - СТЕКЛЯННЫЕ ==================== */
+._5e434347c823b592-panels {
+  background: hsla(0, 0%, 0%, 0.25) !important;
+  backdrop-filter: blur(20px);
+  border-top: 1px solid hsla(0, 0%, 100%, 0.15);
+  box-shadow: 0 -4px 30px hsla(0, 0%, 0%, 0.4);
 }
 
-/* NEON PROGRESS BARS */
-._0d0f9ddd12a3ace3-progressBar {
-  background: linear-gradient(90deg,
-                             hsla(var(--accent-hsl), 0.8),
-                             hsla(var(--neon-cyan), 0.8)) !important;
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.5);
+.container_bd9e38 {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--glass-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--glass-shadow);
 }
 
-/* NEON SEPARATORS */
-.divider-_0um2u {
-  background: hsla(var(--accent-hsl), 0.3);
-  box-shadow: 0 0 5px hsla(var(--accent-hsl), 0.5);
+/* ==================== ПОЛОСА ПРОКРУТКИ - НЕОНОВАЯ ==================== */
+.d125d22cdfd32cfe-scroller::-webkit-scrollbar {
+  width: var(--scrollbar-width);
 }
 
-/* NEON BADGES */
-._82f0793afa59e5dc-botTag {
-  background: hsla(var(--accent-hsl), 0.8) !important;
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.5);
-  border: none;
+.d125d22cdfd32cfe-scroller::-webkit-scrollbar-track {
+  background: hsla(0, 0%, 0%, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
 }
 
-/* NEON TYPOGRAPHY */
-h1, h2, h3, h4, h5, h6,
-.header-2o-2hj,
-.name-3BUDLf,
-.username-_4ZSMR {
-  color: var(--text-bright);
-  text-shadow: 0 0 10px hsla(var(--accent-hsl), 0.5);
+.d125d22cdfd32cfe-scroller::-webkit-scrollbar-thumb {
+  background: hsla(0, 0%, 100%, var(--scrollbar-opacity));
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: var(--scrollbar-glow);
+  transition: all var(--transition-time) var(--transition-type);
 }
 
-/* NEON LOADING ANIMATIONS */
-.spinner-3lR6KX,
-.spinnerItem-2HfQC8 {
-  color: hsla(var(--accent-hsl), 0.8) !important;
-  filter: drop-shadow(0 0 5px hsla(var(--accent-hsl), 0.8));
+.d125d22cdfd32cfe-scroller::-webkit-scrollbar-thumb:hover {
+  background: hsla(0, 0%, 100%, var(--scrollbar-opacity-hover));
+  box-shadow: var(--accent-glow);
 }
 
-/* NEON UPLOAD PROGRESS */
-.upload-3D3xLZ {
-  background: hsla(var(--accent-hsl), 0.2);
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
+/* ==================== АВАТАРЫ - НЕОНОВЫЕ РАМКИ ==================== */
+._44b0c28be7879b7b-wrapper,
+.avatar-3uk_uD {
+  border: 2px solid hsla(0, 0%, 100%, 0.5);
+  box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.6),
+              inset 0 0 15px hsla(0, 0%, 100%, 0.3);
+  border-radius: 50%;
+  background: transparent !important;
 }
 
-.uploadProgress-3JNq4V {
-  background: linear-gradient(90deg,
-                             hsla(var(--accent-hsl), 0.8),
-                             hsla(var(--neon-cyan), 0.8));
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.5);
+/* Статусы онлайн */
+.avatar-3uk_uD[style*="box-shadow: 0 0 0 0px var(--status-speaking)"] {
+  box-shadow: 0 0 0 3px hsl(139, 47%, 43%),
+              0 0 20px hsl(139, 47%, 43%),
+              inset 0 0 15px hsla(0, 0%, 100%, 0.3) !important;
 }
 
-/* NEON NOTIFICATIONS */
-.bd-notice,
-.bd-notification {
-  background: var(--popout-color) !important;
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: var(--popout-glow);
-  backdrop-filter: blur(var(--popout-blur));
-}
-
-/* NEON EMBEDS */
+/* ==================== ВЛОЖЕНИЯ - ПРОЗРАЧНЫЕ ==================== */
 ._623de82e76ad7f82-embedFull,
-._44c9ad8d149f0821-embedCard {
-  border-left: 3px solid hsla(var(--accent-hsl), 0.8);
-  background: var(--card-color);
+._44c9ad8d149f0821-embedCard,
+._9271d23503a01b50-container {
+  background: var(--card-color) !important;
+  backdrop-filter: var(--card-backdrop);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
   box-shadow: var(--card-glow);
+  border-left: 3px solid hsla(0, 0%, 100%, 0.6);
 }
 
-/* NEON REACTIONS */
+/* ==================== РЕАКЦИИ - НЕОНОВЫЕ ==================== */
 ._23977d5b7cef7361-reaction {
-  background: hsla(220, 30%, 15%, 0.7);
-  border: 1px solid hsla(var(--accent-hsl), 0.3);
-  box-shadow: 0 0 5px hsla(var(--accent-hsl), 0.2);
+  background: hsla(0, 0%, 100%, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.2);
+  transition: all var(--transition-time) var(--transition-type);
+}
+
+._23977d5b7cef7361-reaction:hover {
+  background: hsla(0, 0%, 100%, 0.2) !important;
+  border-color: hsla(0, 0%, 100%, 0.6);
+  box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.4);
+  transform: scale(1.05);
 }
 
 ._23977d5b7cef7361-reaction._23977d5b7cef7361-reactionMe {
-  background: hsla(var(--accent-hsl), 0.2);
-  border-color: hsla(var(--accent-hsl), 0.8);
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.5);
+  background: hsla(0, 0%, 100%, 0.25) !important;
+  border-color: hsla(0, 0%, 100%, 0.8);
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.6);
 }
 
-/* NEON TOOLTIPS */
+/* ==================== ИНПУТЫ - СТЕКЛЯННЫЕ ==================== */
+._72c3859781ebce8f-wrapper,
+.container_fea832 {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--textarea-border);
+  border-radius: var(--textarea-radius);
+  box-shadow: var(--textarea-glow);
+  transition: all var(--transition-time) var(--transition-type);
+}
+
+._72c3859781ebce8f-wrapper:focus-within,
+.container_fea832:focus-within {
+  background: hsla(0, 0%, 100%, 0.12) !important;
+  border-color: hsla(0, 0%, 100%, 0.6);
+  box-shadow: var(--accent-glow);
+}
+
+/* ==================== СВИТЧИ - НЕОНОВЫЕ ==================== */
+._3f21e80f8677ec40-container {
+  background: var(--switch-slider-color) !important;
+  backdrop-filter: blur(10px);
+  border: var(--switch-border);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+}
+
+._3f21e80f8677ec40-container._3f21e80f8677ec40-checked {
+  background: hsla(0, 0%, 100%, 0.4) !important;
+  box-shadow: var(--switch-glow),
+              var(--accent-inner-glow);
+}
+
+._3f21e80f8677ec40-container._3f21e80f8677ec40-checked ._3f21e80f8677ec40-slider rect {
+  fill: var(--switch-knob-color) !important;
+}
+
+/* ==================== СЛАЙДЕРЫ - НЕОНОВЫЕ ==================== */
+.a562c840daab72a7-bar {
+  background: hsla(0, 0%, 100%, 0.15) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: 10px;
+  box-shadow: var(--glass-shadow);
+}
+
+.a562c840daab72a7-barFill {
+  background: linear-gradient(90deg,
+                             hsla(0, 0%, 100%, 0.8),
+                             hsl(0, 0%, 100%)) !important;
+  border-radius: 10px;
+  box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.7);
+}
+
+.a562c840daab72a7-grabber {
+  background: hsl(0, 0%, 100%) !important;
+  border: 2px solid hsl(0, 0%, 100%);
+  box-shadow: var(--accent-glow);
+}
+
+/* ==================== ВЫБОР ЭМОДЗИ - СТЕКЛЯННЫЙ ==================== */
+.c0e32c5cffed3d9f-emojiPicker {
+  background: var(--popout-color) !important;
+  backdrop-filter: var(--popout-backdrop);
+  border: var(--popout-border);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--popout-shadow);
+}
+
+.fc7141859aaa98b7-emojiItem {
+  background: transparent;
+  border-radius: var(--card-radius);
+  transition: all var(--transition-time) var(--transition-type);
+}
+
+.fc7141859aaa98b7-emojiItem:hover {
+  background: hsla(0, 0%, 100%, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.3);
+}
+
+.fc7141859aaa98b7-emojiItem.fc7141859aaa98b7-emojiItemSelected {
+  background: hsla(0, 0%, 100%, 0.25) !important;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.4);
+}
+
+/* ==================== НАСТРОЙКИ - ПРОЗРАЧНЫЕ ==================== */
+._23e6b439306f125a-standardSidebarView {
+  background: hsla(0, 0%, 0%, 0.2) !important;
+  backdrop-filter: blur(30px);
+  border-radius: var(--app-radius);
+  margin: var(--app-margin);
+}
+
+._23e6b439306f125a-sidebarRegionScroller {
+  background: hsla(0, 0%, 0%, 0.15) !important;
+  backdrop-filter: blur(20px);
+  border-right: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+._23e6b439306f125a-contentRegion {
+  background: transparent !important;
+}
+
+/* ==================== УВЕДОМЛЕНИЯ - НЕОНОВЫЕ ==================== */
+.bd-notice,
+.bd-notification,
+.toast {
+  background: var(--popout-color) !important;
+  backdrop-filter: var(--popout-backdrop);
+  border: var(--popout-border);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--popout-shadow),
+              var(--accent-glow);
+  color: var(--text-bright);
+  text-shadow: var(--text-shadow);
+}
+
+/* ==================== ТУЛТИПЫ - НЕОНОВЫЕ ==================== */
 .c36707910f687430-tooltip {
   background: var(--tooltip-color) !important;
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
+  backdrop-filter: blur(20px);
+  border: var(--tooltip-border);
+  border-radius: var(--card-radius);
   box-shadow: var(--tooltip-glow);
+  color: var(--tooltip-text-color);
+  text-shadow: var(--text-shadow);
+}
+
+/* ==================== ПОЛОСА ПРОГРЕССА - НЕОНОВАЯ ==================== */
+._0d0f9ddd12a3ace3-progressBar {
+  background: linear-gradient(90deg,
+                             hsla(0, 0%, 100%, 0.8),
+                             hsl(0, 0%, 100%)) !important;
+  border-radius: 10px;
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.6);
+}
+
+/* ==================== БЭДЖИ - НЕОНОВЫЕ ==================== */
+._82f0793afa59e5dc-botTag {
+  background: hsla(0, 0%, 100%, 0.25) !important;
   backdrop-filter: blur(10px);
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.5);
+  color: hsl(0, 0%, 100%) !important;
+  text-shadow: var(--text-shadow);
 }
 
-/* NEON CHANNEL MENTIONS */
-.unread-1Dp-OI {
-  background: hsla(var(--accent-hsl), 0.8) !important;
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.8);
+/* ==================== РОЛИ - ПРОЗРАЧНЫЕ ==================== */
+.dfa8b6b94cddb191-role,
+._5d7c9a81ac5dd074-role {
+  background: hsla(0, 0%, 100%, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.2);
 }
 
-/* NEON VOICE INDICATORS */
-.speaking-2Z1ZJQ {
-  border-color: hsla(var(--accent-hsl), 0.8) !important;
-  box-shadow: 0 0 15px hsla(var(--accent-hsl), 0.5),
-              inset 0 0 15px hsla(var(--accent-hsl), 0.2);
+/* ==================== ПОИСК - СТЕКЛЯННЫЙ ==================== */
+.c322aadb96ff59c9-searchBar {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--textarea-border);
+  border-radius: 20px;
+  box-shadow: var(--textarea-glow);
 }
 
-/* NEON SEARCH HIGHLIGHTS */
-.highlight {
-  background: hsla(var(--accent-hsl), 0.3);
-  box-shadow: 0 0 5px hsla(var(--accent-hsl), 0.5);
-  border-radius: 2px;
+/* ==================== КОД - ПРОЗРАЧНЫЙ ==================== */
+._752971923a1e6683-markup pre {
+  background: hsla(0, 0%, 0%, 0.3) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: var(--card-radius);
+  box-shadow: inset 0 0 30px hsla(0, 0%, 0%, 0.5),
+              0 0 20px hsla(0, 0%, 100%, 0.15);
 }
 
-/* NEON CODE BLOCKS */
-.markup-2BOw-j code {
-  background: hsla(220, 30%, 10%, 0.8);
-  border: 1px solid hsla(var(--accent-hsl), 0.3);
-  box-shadow: inset 0 0 10px hsla(220, 30%, 5%, 0.5);
+._752971923a1e6683-markup code {
+  background: hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: 6px;
+  box-shadow: inset 0 0 10px hsla(0, 0%, 0%, 0.3);
 }
 
-.markup-2BOw-j pre {
-  background: hsla(220, 30%, 10%, 0.9) !important;
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: inset 0 0 20px hsla(220, 30%, 5%, 0.7),
-              0 0 20px hsla(var(--accent-hsl), 0.2);
+/* ==================== СПОЙЛЕРЫ - ПРОЗРАЧНЫЕ ==================== */
+._299eb87491f4b6d1-spoilerMarkdownContent {
+  background: hsla(0, 0%, 0%, 0.4) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: 6px;
 }
 
-/* NEON QUOTES */
-.blockquoteContainer-3VtvI4 {
-  border-left: 3px solid hsla(var(--accent-hsl), 0.8);
-  background: hsla(220, 30%, 10%, 0.5);
-  box-shadow: inset 10px 0 20px hsla(var(--accent-hsl), 0.1);
+._299eb87491f4b6d1-spoilerMarkdownContent:hover {
+  background: hsla(0, 0%, 0%, 0.6) !important;
+  border-color: hsla(0, 0%, 100%, 0.4);
+  box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.3);
 }
 
-/* NEON SPOILERS */
-.spoilerText-3p6IlD {
-  background: hsla(220, 30%, 15%, 0.8);
-  border: 1px solid hsla(var(--accent-hsl), 0.3);
+/* ==================== ДЕЛИТЕРЫ - НЕОНОВЫЕ ==================== */
+.divider-_0um2u {
+  background: hsla(0, 0%, 100%, 0.3);
+  box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.5);
 }
 
-.spoilerText-3p6IlD.hidden-3B-Rum {
-  background: hsla(220, 30%, 10%, 0.9);
+/* ==================== ПОЛОСА НОВЫХ СООБЩЕНИЙ - НЕОНОВАЯ ==================== */
+._0f481cbbd7530492-newMessagesBar {
+  background: linear-gradient(90deg,
+                             hsla(0, 0%, 100%, 0.9),
+                             hsl(0, 0%, 100%)) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  border-radius: 20px;
+  box-shadow: var(--accent-glow);
+  color: hsl(0, 0%, 0%) !important;
+  text-shadow: 0 0 10px hsla(0, 0%, 100%, 0.8);
 }
 
-.spoilerText-3p6IlD.hidden-3B-Rum:hover {
-  background: hsla(220, 30%, 15%, 0.9);
-  border-color: hsla(var(--accent-hsl), 0.5);
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.3);
-}
-
-/* NEON DRAG AND DROP */
-.uploadModal-2ifh8j {
-  background: hsla(220, 30%, 5%, 0.95) !important;
-  backdrop-filter: blur(30px);
-  border: 2px dashed hsla(var(--accent-hsl), 0.5);
-  box-shadow: var(--popout-glow),
-              inset 0 0 50px hsla(var(--accent-hsl), 0.1);
-}
-
-/* NEON PING ANIMATION */
-@keyframes ping {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-.ping-3k3P2U {
-  animation: ping 1s ease-out infinite;
-  background: hsla(var(--accent-hsl), 0.8);
-  box-shadow: 0 0 20px hsla(var(--accent-hsl), 0.8);
-}
-
-/* NEON SCROLL TO BOTTOM */
+/* ==================== ПОЛОСА ПРОКРУТКИ ВНИЗ - НЕОНОВАЯ ==================== */
 ._0f481cbbd7530492-jumpToPresentBar {
-  background: hsla(var(--accent-hsl), 0.2);
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: 0 0 20px hsla(var(--accent-hsl), 0.3);
-  backdrop-filter: blur(10px);
+  background: hsla(0, 0%, 100%, 0.15) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 0 25px hsla(0, 0%, 100%, 0.4);
+  transition: all var(--transition-time) var(--transition-type);
 }
 
 ._0f481cbbd7530492-jumpToPresentBar:hover {
-  background: hsla(var(--accent-hsl), 0.3);
-  box-shadow: 0 0 30px hsla(var(--accent-hsl), 0.5);
-}
-
-/* NEON NEW MESSAGES BAR */
-._0f481cbbd7530492-newMessagesBar {
-  background: linear-gradient(90deg,
-                             hsla(var(--accent-hsl), 0.9),
-                             hsla(var(--neon-cyan), 0.9)) !important;
+  background: hsla(0, 0%, 100%, 0.25) !important;
+  border-color: hsla(0, 0%, 100%, 0.6);
   box-shadow: var(--accent-glow);
-  border: none;
 }
 
-/* NEON CONNECTION STATUS */
-.rtcConnectionStatus-2-jPli.rtcConnectionQualityFine-3J6YbJ {
-  color: hsla(140, 100%, 65%, 0.9);
-  text-shadow: 0 0 10px hsla(140, 100%, 65%, 0.7);
+/* ==================== АНИМАЦИЯ ЗАГРУЗКИ - НЕОНОВАЯ ==================== */
+.spinner-3lR6KX {
+  color: hsla(0, 0%, 100%, 0.8) !important;
+  filter: drop-shadow(0 0 10px hsla(0, 0%, 100%, 0.8));
 }
 
-/* NEON AUDIO VISUALIZER */
-.audioControls-2fNwmb .speaking-3Q1r4R {
-  background: hsla(var(--accent-hsl), 0.3);
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: 0 0 15px hsla(var(--accent-hsl), 0.3),
-              inset 0 0 10px hsla(var(--accent-hsl), 0.2);
+.spinnerItem-2HfQC8 {
+  background: hsl(0, 0%, 100%) !important;
+  box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.8);
 }
 
-/* NEON EMOJI PICKER CATEGORIES */
-.emojiPicker-3m1S-j .category-2U57w6 {
-  border-bottom: 1px solid hsla(var(--accent-hsl), 0.3);
-  box-shadow: 0 2px 5px hsla(var(--accent-hsl), 0.1);
+/* ==================== СЕКЦИИ - ПРОЗРАЧНЫЕ ==================== */
+._908e20001ad67812-divider._5126c0cd07f243a0-hasContent {
+  border-top: 1px solid hsla(0, 0%, 100%, 0.2);
+  box-shadow: 0 2px 10px hsla(0, 0%, 0%, 0.4);
 }
 
-/* NEON ACTIVITY CARDS */
-.activity-2Gy-9S {
-  background: var(--card-color);
-  border: 1px solid hsla(var(--accent-hsl), 0.3);
-  box-shadow: var(--card-glow);
+._908e20001ad67812-content {
+  background: hsla(0, 0%, 100%, 0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid hsla(0, 0%, 100%, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.3);
+  color: var(--text-bright);
+  text-shadow: var(--text-shadow);
 }
 
-/* NEON INBOX ITEMS */
-.channel-3NJZ1V {
-  border-bottom: 1px solid hsla(var(--accent-hsl), 0.2);
-}
-
-.channel-3NJZ1V:hover {
-  background: hsla(var(--accent-hsl), 0.1);
-  border-color: hsla(var(--accent-hsl), 0.5);
-}
-
-/* NEON THREADS */
-.container-1r6BKw {
-  border-left: 2px solid hsla(var(--accent-hsl), 0.5);
-  background: hsla(220, 30%, 12%, 0.8);
-  box-shadow: inset 10px 0 20px hsla(var(--accent-hsl), 0.1);
-}
-
-/* NEON USER POPOUT */
-.userPopout-3XzG_A {
+/* ==================== ПОПАП ПОЛЬЗОВАТЕЛЯ - СТЕКЛЯННЫЙ ==================== */
+.c0bea05627c5dc35-outer {
   background: var(--popout-color) !important;
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: var(--popout-glow);
-  backdrop-filter: blur(var(--popout-blur));
+  backdrop-filter: var(--popout-backdrop);
+  border: var(--popout-border);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--popout-shadow);
 }
 
-/* NEON ROLE PILLS */
-.role-2irmRk {
-  background: hsla(var(--accent-hsl), 0.2);
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: 0 0 5px hsla(var(--accent-hsl), 0.3);
+/* ==================== ТАБЫ - ПРОЗРАЧНЫЕ ==================== */
+._133bf5eea8e33a34-tabBar .aa8da23faa27393c-item {
+  background: transparent;
+  border-radius: var(--button-radius);
+  transition: all var(--transition-time) var(--transition-type);
 }
 
-/* NEON MEMBER LIST ITEMS */
-.member-3-YXUe:hover {
-  background: hsla(var(--accent-hsl), 0.1);
-  border-radius: 5px;
+._133bf5eea8e33a34-tabBar .aa8da23faa27393c-item:hover {
+  background: hsla(0, 0%, 100%, 0.15);
+  backdrop-filter: blur(10px);
 }
 
-/* NEON SETTINGS SIDEBAR */
-.sidebarRegion-VFTUkN {
-  background: hsla(220, 30%, 10%, 0.9);
-  border-right: 1px solid hsla(var(--accent-hsl), 0.3);
+._133bf5eea8e33a34-tabBar .aa8da23faa27393c-item.aa8da23faa27393c-selected {
+  background: hsla(0, 0%, 100%, 0.25);
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid hsl(0, 0%, 100%);
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.3);
 }
 
-/* NEON KEYBINDS */
-.keybind-13vtq8 {
-  background: hsla(220, 30%, 15%, 0.8);
-  border: 1px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: 0 2px 5px hsla(220, 30%, 5%, 0.5);
+/* ==================== СЕЛЕКТЫ - СТЕКЛЯННЫЕ ==================== */
+.a16aea1526925c2c-popout {
+  background: var(--popout-color) !important;
+  backdrop-filter: var(--popout-backdrop);
+  border: var(--popout-border);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--popout-shadow);
 }
 
-/* NEON SLIDERS */
-.bar-1G8C6C {
-  background: hsla(220, 30%, 20%, 0.8);
-  border: 1px solid hsla(var(--accent-hsl), 0.3);
+/* ==================== ЧЕКБОКСЫ - НЕОНОВЫЕ ==================== */
+._09aca73e6d4b214b-checkbox._09aca73e6d4b214b-checked {
+  background: hsl(0, 0%, 100%) !important;
+  border-color: hsl(0, 0%, 100%) !important;
+  box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.8);
 }
 
-.barFill-3RgCsY {
+/* ==================== АКТИВНОСТИ - ПРОЗРАЧНЫЕ ==================== */
+._0f2e83213c878a13-container {
+  background: hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-glow);
+  transition: all var(--transition-time) var(--transition-type);
+}
+
+._0f2e83213c878a13-container:hover {
+  background: hsla(0, 0%, 100%, 0.2);
+  border-color: hsla(0, 0%, 100%, 0.4);
+  box-shadow: 0 0 25px hsla(0, 0%, 100%, 0.3);
+}
+
+/* ==================== ВСПЛЫВАЮЩИЕ УВЕДОМЛЕНИЯ ==================== */
+._6e2b9359c6f84cfd-notice {
+  background: hsla(0, 0%, 0%, 0.4) !important;
+  backdrop-filter: blur(30px);
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--popout-shadow),
+              var(--accent-glow);
+}
+
+/* ==================== ГРАНИЦЫ СЕКЦИЙ ==================== */
+._4d95d73152192cf9-footer {
+  border-top: 1px solid hsla(0, 0%, 100%, 0.15);
+  background: hsla(0, 0%, 0%, 0.2);
+  backdrop-filter: blur(15px);
+}
+
+/* ==================== КОМПОНЕНТЫ ГОЛОСОВОГО ЧАТА ==================== */
+._1405b3b8e8eb5fd0-buttonSection {
+  background: hsla(0, 0%, 0%, 0.3) !important;
+  backdrop-filter: blur(25px);
+  border-top: 1px solid hsla(0, 0%, 100%, 0.2);
+  box-shadow: 0 -4px 30px hsla(0, 0%, 0%, 0.5);
+}
+
+/* ==================== ЭФФЕКТ ВЫДЕЛЕНИЯ ==================== */
+._5126c0cd07f243a0-backgroundFlash:not([style$="0);"]) {
+  background: hsla(0, 0%, 100%, 0.2) !important;
+  box-shadow: inset 0 0 30px hsla(0, 0%, 100%, 0.3);
+}
+
+/* ==================== ПРЕМИУМ ЭЛЕМЕНТЫ ==================== */
+.premiumPromo__3a1b6 {
+  background: hsla(0, 0%, 0%, 0.4) !important;
+  backdrop-filter: blur(30px);
+  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  border-radius: var(--popout-radius);
+  box-shadow: var(--accent-glow);
+}
+
+/* ==================== ИНПУТЫ С ЦВЕТОМ ==================== */
+.optionBox_edf440 .contentCircle_edf440 {
+  background: hsla(0, 0%, 100%, 0.2) !important;
+  backdrop-filter: blur(15px);
+  border: 2px solid hsla(0, 0%, 100%, 0.4);
+  box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.4);
+}
+
+/* ==================== ПРОГРЕСС ЗАГРУЗКИ ==================== */
+.uploadProgress-3JNq4V {
   background: linear-gradient(90deg,
-                             hsla(var(--accent-hsl), 0.8),
-                             hsla(var(--neon-cyan), 0.8));
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.5);
+                             hsla(0, 0%, 100%, 0.9),
+                             hsl(0, 0%, 100%)) !important;
+  box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.7);
 }
 
-/* NEON CHECKBOXES */
-.checked-3_4uQ9 {
-  background: hsla(var(--accent-hsl), 0.8) !important;
-  border-color: hsla(var(--accent-hsl), 0.8) !important;
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.5);
-}
-
-/* NEON RADIO BUTTONS */
-.radioBar-3w9XY-:checked + .radioSelection-1a4hxI {
-  background: hsla(var(--accent-hsl), 0.8);
-  border-color: hsla(var(--accent-hsl), 0.8);
-  box-shadow: 0 0 10px hsla(var(--accent-hsl), 0.5);
-}
-
-/* NEON TAB BAR */
-.tabBar-2hXqUul .item-3mHhwr.selected-g-kMVV {
-  background: hsla(var(--accent-hsl), 0.2);
-  border-bottom: 2px solid hsla(var(--accent-hsl), 0.8);
-  box-shadow: 0 2px 10px hsla(var(--accent-hsl), 0.3);
-}
-
-/* NEON DIVIDERS */
-.divider-3wNib3 {
-  background: hsla(var(--accent-hsl), 0.3);
-  box-shadow: 0 0 5px hsla(var(--accent-hsl), 0.5);
-}
-
-/* NEON FOOTER */
-.footer-3rDWdC {
-  background: hsla(220, 30%, 10%, 0.9);
-  border-top: 1px solid hsla(var(--accent-hsl), 0.3);
-  box-shadow: 0 -5px 20px hsla(220, 100%, 10%, 0.3);
-}
-
-/* NEON STREAM PREVIEW */
-.preview-2XbrYF {
-  border: 2px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: 0 0 30px hsla(var(--accent-hsl), 0.3);
-}
-
-/* NEON VIDEO CALL */
-.video-1FfuMD {
-  border: 2px solid hsla(var(--accent-hsl), 0.5);
-  box-shadow: 0 0 30px hsla(var(--accent-hsl), 0.3),
-              inset 0 0 30px hsla(var(--accent-hsl), 0.1);
-}
-
-/* NEON SCREENSHARE */
-.screenshare-2F2F0t {
-  border: 3px solid hsla(var(--accent-hsl), 0.8);
-  box-shadow: 0 0 50px hsla(var(--accent-hsl), 0.5),
-              inset 0 0 50px hsla(var(--accent-hsl), 0.2);
-}
-
-/* RESPONSIVE NEON EFFECTS */
+/* ==================== РЕЗПОНСИВ ДИЗАЙН ==================== */
 @media (max-width: 1200px) {
   :root {
-    --app-blur: 8px;
-    --accent-glow: 0 0 10px hsla(var(--accent-hsl), 0.5);
-  }
-  
-  ._51fd70792ee2e563-appMount * {
-    text-shadow: 0 0 3px hsla(var(--accent-hsl), 0.3);
+    --app-blur: 10px;
+    --popout-blur: 15px;
+    --accent-glow: 0 0 15px hsla(var(--accent-hsl), 0.7);
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --app-blur: 4px;
-    --accent-glow: 0 0 5px hsla(var(--accent-hsl), 0.3);
+    --app-blur: 5px;
+    --main-content-opacity: 0.2;
+    --sidebar-opacity: 0.15;
+    --accent-glow: 0 0 10px hsla(var(--accent-hsl), 0.6);
   }
   
-  ._201d5e8a3c09670a-button::before {
-    display: none;
+  ._160d8e55254637e5-layers {
+    margin: 8px;
+  }
+  
+  ._5e434347c823b592-sidebar,
+  .f75fb00fb7356cbe-chat {
+    border-radius: var(--app-radius);
   }
 }
 
-/* PERFORMANCE OPTIMIZATION */
+/* ==================== РЕЖИМ ДОСТУПНОСТИ ==================== */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -730,7 +988,7 @@ h1, h2, h3, h4, h5, h6,
   }
   
   ._201d5e8a3c09670a-button::before {
-    animation: none;
+    display: none;
   }
   
   .c19a557985eb7793-wrapper._5126c0cd07f243a0-mentioned {
@@ -738,29 +996,66 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-/* ACCESSIBILITY: HIGH CONTRAST MODE */
 @media (prefers-contrast: high) {
   :root {
-    --accent-glow: 0 0 20px hsla(var(--accent-hsl), 0.9);
-    --button-glow: 0 0 20px hsla(var(--accent-hsl), 0.9);
-    --popout-glow: 0 0 40px hsla(var(--accent-hsl), 0.9);
+    --main-content-opacity: 0.25;
+    --sidebar-opacity: 0.2;
+    --accent-glow: 0 0 25px hsla(var(--accent-hsl), 0.9);
+    --button-glow: 0 0 25px hsla(var(--accent-hsl), 0.9);
   }
   
   ._51fd70792ee2e563-appMount * {
-    text-shadow: 0 0 8px hsla(var(--accent-hsl), 0.9);
+    text-shadow: 0 0 10px hsla(0, 0%, 100%, 0.9);
   }
 }
 
-/* ACCESSIBILITY: REDUCED TRANSPARENCY */
-@media (prefers-reduced-transparency: reduce) {
-  :root {
-    --main-content-opacity: 1;
-    --sidebar-opacity: 1;
-    --popout-color: hsla(220, 30%, 10%, 1);
-    --card-color: hsla(220, 30%, 15%, 1);
+/* ==================== СИСТЕМНЫЕ ЦВЕТА ==================== */
+::selection {
+  background: hsla(0, 0%, 100%, 0.4);
+  color: hsl(0, 0%, 0%);
+  text-shadow: 0 0 10px hsla(0, 0%, 100%, 0.8);
+}
+
+/* ==================== ПОСЛЕДНИЕ ШТРИХИ ==================== */
+/* Добавляем свечение ко всем интерактивным элементам */
+._201d5e8a3c09670a-button,
+._2ea32c412048f708-link,
+._5d473ecff348c314-memberInner,
+.fc7141859aaa98b7-emojiItem,
+._23977d5b7cef7361-reaction {
+  position: relative;
+}
+
+/* Создаём эффект неоновой ауры */
+@keyframes aura {
+  0%, 100% {
+    box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.3),
+                inset 0 0 10px hsla(0, 0%, 100%, 0.1);
   }
-  
-  ._160d8e55254637e5-layers {
-    backdrop-filter: none;
+  50% {
+    box-shadow: 0 0 20px hsla(0, 0%, 100%, 0.5),
+                inset 0 0 20px hsla(0, 0%, 100%, 0.2);
   }
+}
+
+/* Применяем ауру к активным элементам */
+._2ea32c412048f708-link.selected-aXhQR6,
+._201d5e8a3c09670a-button:hover,
+._23977d5b7cef7361-reaction._23977d5b7cef7361-reactionMe {
+  animation: aura 2s ease-in-out infinite;
+}
+
+/* Глобальное затемнение для лучшей читаемости */
+._51fd70792ee2e563-appMount::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+                            hsla(0, 0%, 0%, 0.4) 0%,
+                            hsla(0, 0%, 0%, 0.2) 100%);
+  pointer-events: none;
+  z-index: -1;
 }
